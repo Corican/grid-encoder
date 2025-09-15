@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Encoder/Decoder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <!-- Left side: 9x10 clickable grid -->
+            <div class="grid-container">
+                <div class="grid-controls">
+                    <button id="clearBtn">Clear</button>
+                    <button id="fillBtn">Fill</button>
+                    <button id="randomizeBtn">Randomize</button>
+                </div>
+                <div class="grid" id="dataGrid"></div>
+            </div>
+            
+            <!-- Right side: 10x10 preview canvas -->
+            <div class="preview-container">
+                <canvas id="previewCanvas" width="100" height="100"></canvas>
+            </div>
+        </div>
+        
+        <!-- Input section -->
+        <div class="input-section">
+            <div class="input-group">
+                <label for="addressInput">Address (or any string):</label>
+                <input type="text" id="addressInput" placeholder="Enter address or any string">
+            </div>
+            
+            <button id="generateBtn">Generate Amount</button>
+            <button id="testBtn">Test Round-Trip</button>
+            
+            <div class="input-group">
+                <label for="amountOutput">30-digit fraction:</label>
+                <input type="text" id="amountOutput" readonly placeholder="0.000000000000000000000000000000">
+                <button id="copyAmountBtn">Copy Amount</button>
+            </div>
+        </div>
+        
+        <!-- Decoder section -->
+        <div class="decoder-section">
+            <h3>Decoder</h3>
+            <div class="input-group">
+                <label for="decodeAmountInput">Amount (0.&lt;30 digits&gt;):</label>
+                <input type="text" id="decodeAmountInput" placeholder="0.000000000000000000000000000000">
+            </div>
+            
+            <div class="input-group">
+                <label for="decodeAddressInput">Address:</label>
+                <input type="text" id="decodeAddressInput" placeholder="Enter address for palette">
+            </div>
+            
+            <button id="decodeBtn">Decode</button>
+            
+            <div class="input-group">
+                <label for="decodeOutput">Preview Output:</label>
+                <div class="decode-preview-container">
+                    <canvas id="decodePreviewCanvas" width="100" height="100"></canvas>
+                    <div id="decodeOutput" class="decode-preview"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Nano Balance Decoder section -->
+        <div class="nano-section">
+            <h3>Nano Balance Decoder</h3>
+            <div class="input-group">
+                <label for="nanoAddressInput">Nano address:</label>
+                <input type="text" id="nanoAddressInput" placeholder="nano_1... or xrb_1...">
+            </div>
+            
+            <button id="decodeFromBalanceBtn">Decode From Balance</button>
+            
+            <div class="nano-note">
+                <small>For balances ≥ 1 Nano, only the last 30 digits are used. Pending funds are not auto-received.</small>
+            </div>
+        </div>
+        
+        <!-- Status/errors area -->
+        <div class="status-area" id="statusArea"></div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>

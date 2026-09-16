@@ -1,3 +1,5 @@
+Note: Just a concept I am playing with. AI coded. Don't expect much.
+
 # Grid Encoder/Decoder
 
 A minimal Single Page Application (SPA) that encodes/decodes a 9×10 clickable grid into a 30-digit fraction using BigInt arithmetic and SHA-256 based color palettes.
